@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agile Facility Solutions — Master Operations, Slang &amp; Compliance Portal</title>
+  <style>
+    :root {
+      --navy: #0d255e;
+      --navy-dark: #081840;
+      --slate-blue: #0095d9;
+      --slate-light: #e6f6fd;
+      --brand-gold: #f9c835;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --success-bg: #dcfce7;
+      --success-text: #166534;
+      --warn-bg: #fef3c7;
+      --warn-text: #92400e;
+      --danger-bg: #fee2e2;
+      --danger-text: #991b1b;
+      --info-bg: #e0f2fe;
+      --info-text: #075985;
+      --radius-md: 0.625rem;
+      --radius-lg: 0.875rem;
+      --shadow-sm: 0 1px 3px rgba(13, 37, 94, 0.08);
+      --shadow-md: 0 4px 12px rgba(13, 37, 94, 0.1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+
+    /* Header Banner */
+    .portal-header {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 68%, #133985 100%);
+      color: #ffffff;
+      padding: 1.35rem 4%;
+      border-bottom: 4px solid var(--brand-gold);
+      position: relative;
+    }
+
+    .portal-header::after {
+      content: "";
+      display: block;
+      height: 3px;
+      background: var(--slate-blue);
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+      right: 0;
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.15rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .brand-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .logo-frame {
+      background: #ffffff;
+      padding: 0.55rem 0.9rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+      border: 2px solid rgba(249, 200, 53, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-frame img {
+      height: 3.1rem;
+      width: auto;
+      max-width: 100%;
+      display: block;
+    }
+
+    .brand-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-gold);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .brand-title {
+      font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      margin: 0.2rem 0 0 0;
+    }
+
+    .coordinator-badge {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0, 149, 217, 0.45);
+      border-left: 4px solid var(--brand-gold);
+      border-radius: var(--radius-md);
+      padding: 0.65rem 1rem;
+      text-align: right;
+    }
+
+    .coordinator-badge .prep-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7dd3fc;
+      display: block;
+    }
+
+    .coordinator-badge .prep-name {
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: #ffffff;
+    }
+
+    .coordinator-badge .prep-role {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      display: block;
+    }
+
+    /* Navigation Tabs */
+    .nav-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.65rem 4%;
+      margin-top: 3px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      padding: 0.6rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tab-btn:hover {
+      background: var(--slate-light);
+      color: var(--navy);
+    }
+
+    .tab-btn.active {
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(26, 54, 93, 0.25);
+    }
+
+    /* Main Content Container */
+    .main-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 4% 2.5rem 4%;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: fadeIn 0.22s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Layout Utilities */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.25rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0 0 0.35rem 0;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 1.1rem 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    /* Form Controls */
+    .form-group {
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      color: var(--text-main);
+      background: #ffffff;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--slate-blue);
+      box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--slate-blue);
+    }
+
+    /* Buttons & Badges */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.15rem;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--slate-blue);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--navy);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--navy);
+      border-color: #cbd5e1;
+    }
+
+    .btn-outline:hover {
+      background: var(--slate-light);
+      border-color: var(--slate-blue);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-navy { background: var(--navy); color: #ffffff; }
+    .badge-blue { background: var(--slate-light); color: #0369a1; border: 1px solid #bae6fd; }
+    .badge-gold { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+    .badge-success { background: var(--success-bg); color: var(--success-text); }
+    .badge-warn { background: var(--warn-bg); color: var(--warn-text); }
+    .badge-danger { background: var(--danger-bg); color: var(--danger-text); }
+    .badge-info { background: var(--info-bg); color: var(--info-text); }
+
+    /* Module 1: Lifecycle Timeline */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .phase-card {
+      background: #f8fafc;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-align: left;
+    }
+
+    .phase-card:hover {
+      border-color: var(--slate-blue);
+      background: #ffffff;
+    }
+
+    .phase-card.active {
+      border-color: var(--navy);
+      background: var(--slate-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .phase-num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--slate-blue);
+      text-transform: uppercase;
+    }
+
+    .phase-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0.2rem 0;
+    }
+
+    .phase-sla {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .phase-detail-box {
+      background: #f1f5f9;
+      border-left: 4px solid var(--navy);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.25rem;
+    }
+
+    .decision-result {
+      padding: 1rem 1.2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      margin-top: 0.75rem;
+    }
+
+    /* Module 2: Trades & Slang Encyclopedia */
+    .trade-pill-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .trade-pill {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .trade-pill:hover {
+      border-color: var(--slate-blue);
+      background: var(--slate-light);
+    }
+
+    .trade-pill.active {
+      background: var(--slate-blue);
+      color: #ffffff;
+      border-color: var(--slate-blue);
+    }
+
+    .trade-overview-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--slate-blue);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .slang-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slang-term {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0.45rem 0 0.35rem 0;
+    }
+
+    .slang-def {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Flashcard Quiz */
+    .flashcard-box {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      border: 2px solid var(--slate-blue);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .quiz-opt-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      line-height: 1.4;
+    }
+
+    .quiz-opt-btn:hover {
+      border-color: var(--slate-blue);
+      background: var(--slate-light);
+    }
+
+    .quiz-opt-btn.correct {
+      background: var(--success-bg);
+      border-color: #16a34a;
+      color: var(--success-text);
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong {
+      background: var(--danger-bg);
+      border-color: #dc2626;
+      color: var(--danger-text);
+    }
+
+    /* Module 3: Calculator Outputs */
+    .calc-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .kpi-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+    }
+
+    .kpi-card.highlight {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+      border-bottom: 3px solid var(--brand-gold);
+    }
+
+    .kpi-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .kpi-card.highlight .kpi-label {
+      color: #7dd3fc;
+    }
+
+    .kpi-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-top: 0.25rem;
+      color: var(--navy);
+    }
+
+    .kpi-card.highlight .kpi-val {
+      color: #ffffff;
+    }
+
+    /* Module 4: Document Preview */
+    .quote-doc-container {
+      background: #ffffff;
+      border: 1px solid #94a3b8;
+      border-top: 5px solid var(--navy);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      color: #0f172a;
+    }
+
+    .quote-doc-banner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .quote-doc-banner img {
+      height: 2.85rem;
+      width: auto;
+      display: block;
+    }
+
+    .doc-preview {
+      background: #ffffff;
+      padding: 0;
+      font-size: 0.9rem;
+      color: #0f172a;
+      white-space: pre-wrap;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.5rem;
+      background: #f8fafc;
+      cursor: pointer;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      margin-top: 0.25rem;
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--navy);
+    }
+
+    /* Module 5: COI & State Matrix */
+    .coi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+    }
+
+    .coi-table th {
+      background: var(--navy);
+      color: #ffffff;
+      text-align: left;
+      padding: 0.65rem 0.8rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .coi-table td {
+      padding: 0.65rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .coi-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      background: var(--navy-dark);
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 100;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+
+    @media print {
+      .portal-header, .nav-bar, .no-print {
+        display: none !important;
+      }
+      .main-wrap {
+        padding: 0;
+        max-width: 100%;
+      }
+      .card {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP EXECUTIVE BANNER WITH OFFICIAL AGILE LOGO -->
+  <header class="portal-header">
+    <div class="header-top">
+      <div class="brand-cluster">
+        <div class="logo-frame" title="Agile Facility Solutions">
+          <img
+            src="1fe399ce-3ccb-41db-9cbc-18e40af749b2.png"
+            alt="Agile Facility Solutions Logo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <!-- High-precision brand SVG fallback if external image path is moved -->
+          <svg style="display:none; height:3.1rem; width:auto;" viewBox="0 0 340 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agile Facility Solutions">
+            <path d="M12 42 C48 22, 128 20, 146 46 C154 57, 148 70, 134 78 C142 64, 136 48, 114 39 C86 28, 42 32, 12 42 Z" fill="#f9c835"/>
+            <path d="M26 52 C8 68, 22 92, 68 95 C98 97, 126 91, 145 83 C122 89, 92 91, 66 86 C32 80, 22 65, 26 52 Z" fill="#0095d9"/>
+            <polygon points="68,8 22,102 40,102 68,42 96,102 114,102" fill="#0d255e"/>
+            <text x="118" y="88" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="68" fill="#0d255e" letter-spacing="-1">gile</text>
+            <text x="206" y="104" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="13" fill="#0d255e" letter-spacing="3.5">FACILITY</text>
+            <text x="172" y="118" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="13" fill="#0d255e" letter-spacing="3.2">SOLUTIONS</text>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-kicker">Agile Facility Solutions • Prime Contractor Operations Hub</div>
+          <h1 class="brand-title">Master Operations, Trade Slang &amp; Compliance Portal</h1>
+          <p class="brand-subtitle">Interactive Learning System, Automated Estimation Engine &amp; Subcontractor COI Compliance Checker</p>
+        </div>
+      </div>
+      <div class="coordinator-badge">
+        <span class="prep-label">Prepared &amp; Maintained By</span>
+        <span class="prep-name">Jowie Corrado</span>
+        <span class="prep-role">Vendor Coordinator • Agile Facility Solutions</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- STICKY NAVIGATION BAR -->
+  <nav class="nav-bar" aria-label="Portal Modules">
+    <div class="nav-inner">
+      <button class="tab-btn active" data-tab="tab-ops">1. Operations &amp; Lifecycle</button>
+      <button class="tab-btn" data-tab="tab-trades">2. 10 Trades &amp; Slang Encyclopedia</button>
+      <button class="tab-btn" data-tab="tab-calc">3. Pricing &amp; Margin Calculator</button>
+      <button class="tab-btn" data-tab="tab-sow">4. SOW &amp; Quotation Generator</button>
+      <button class="tab-btn" data-tab="tab-coi">5. COI &amp; State WC Compliance</button>
+    </div>
+  </nav>
+
+  <!-- MAIN PORTAL BODY -->
+  <main class="main-wrap">
+
+    <!-- ========================================================= -->
+    <!-- TAB 1: OPERATIONS & LIFECYCLE                             -->
+    <!-- ========================================================= -->
+    <section id="tab-ops" class="tab-panel active">
+      <div class="card">
+        <h2 class="card-title">Agile Facility Solutions — 6-Phase Operational Lifecycle</h2>
+        <p class="card-desc">Click any phase below to inspect standard SLAs, desk actions, NTE (Not-To-Exceed) cost controls, and subcontractor verification steps.</p>
+
+        <div class="phase-grid" id="phaseGrid"></div>
+        <div class="phase-detail-box" id="phaseDetailBox"></div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Interactive Site Visit Decision Engine -->
+        <div class="card">
+          <h2 class="card-title">Automated Site Visit Decision Engine</h2>
+          <p class="card-desc">Select a trade capability and work order scope to determine whether to dispatch immediately via Desk Estimate or mandate a physical Site Walkthrough.</p>
+
+          <div class="form-group">
+            <label for="svTrade">Select Service Capability</label>
+            <select id="svTrade">
+              <option value="janitorial">Janitorial, Housekeeping &amp; Custodial</option>
+              <option value="handyman">Handyman Services &amp; Light Construction</option>
+              <option value="hvac">HVAC Maintenance &amp; Repair</option>
+              <option value="pest">Commercial Pest Control</option>
+              <option value="cleanroom">Controlled Environment Cleaning</option>
+              <option value="painting">Cosmetic Maintenance &amp; Painting</option>
+              <option value="grounds">Grounds, Landscaping &amp; Snow Removal</option>
+              <option value="industrial">Industrial Cleaning Services</option>
+              <option value="security">Security Guard Services</option>
+              <option value="restoration">Specialty Surface Restoration</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="svScopeType">Select Job Complexity / Work Order Type</label>
+            <select id="svScopeType">
+              <option value="routine">Routine Recurring Service (Known Sq Ft / Unit Count)</option>
+              <option value="minor_nte">Reactive Minor Repair (&lt; $750 NTE Cap)</option>
+              <option value="major_install">Major Equipment Replacement / Structural Build-Out</option>
+              <option value="high_elevation">High-Elevation (&gt;15 ft) / Specialized Surface / Lift Access</option>
+            </select>
+          </div>
+
+          <button class="btn btn-primary" type="button" onclick="evaluateSiteVisit()">Run Site Visit Check</button>
+
+          <div class="decision-result" id="svResultBox">
+            <span class="badge badge-info">Ready</span>
+            <p style="margin-top:0.4rem; font-size:0.9rem;">Select a trade and job type above and click <strong>Run Site Visit Check</strong>.</p>
+          </div>
+        </div>
+
+        <!-- NTE & Prime Contractor Governance -->
+        <div class="card">
+          <h2 class="card-title">Prime Contractor Governance &amp; NTE Rules</h2>
+          <p class="card-desc">Core operational controls that protect Agile Facility Solutions' profit margins and SLA compliance.</p>
+          <ul style="padding-left:1.25rem; font-size:0.9rem; color:var(--text-main);">
+            <li style="margin-bottom:0.55rem;"><strong>Managing Partner Model:</strong> Agile holds the client MSA, manages CMMS dispatch, enforces COI compliance, and bills the client at a 25%–35% target gross margin above local vendor buy rates.</li>
+            <li style="margin-bottom:0.55rem;"><strong>Not-To-Exceed (NTE) Cap:</strong> Every reactive Work Order carries a strict dollar ceiling (e.g., $500–$750 NTE). Vendors must stop work and submit photo proof for a written NTE increase if repairs exceed the cap.</li>
+            <li style="margin-bottom:0.55rem;"><strong>IVR / CMMS Check-In &amp; Out:</strong> Technicians must log arrival/departure timestamps and upload clear, timestamped <em>Before</em> and <em>After</em> photos before invoice approval.</li>
+            <li style="margin-bottom:0.55rem;"><strong>2-to-3 Bid Rule:</strong> For capital projects or recurring contracts over $2,500/month, Vendor Coordinators obtain at least 2–3 competitive local subcontractor bids before locking client pricing.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 2: 10 TRADES & SLANG ENCYCLOPEDIA                     -->
+    <!-- ========================================================= -->
+    <section id="tab-trades" class="tab-panel">
+      <div class="card">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+          <div>
+            <h2 class="card-title">10 Service Capabilities &amp; Field Slang Encyclopedia</h2>
+            <p class="card-desc" style="margin-bottom:0;">Filter by trade or search any keyword (e.g., <em>Dock Leveler, Tuck Pointing, RTU, Quat, Shot Blasting, Fire Watch</em>).</p>
+          </div>
+          <button class="btn btn-primary" type="button" id="toggleQuizBtn" onclick="toggleQuizMode()">Launch Slang Flashcard Quiz</button>
+        </div>
+
+        <!-- Flashcard Quiz Container (Hidden by default) -->
+        <div id="quizContainer" style="display:none; margin-bottom:1.25rem;">
+          <div class="flashcard-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+              <span class="badge badge-navy" id="quizTradeBadge">Trade Category</span>
+              <span class="badge badge-blue" id="quizScoreBadge">Score: 0 / 0</span>
+            </div>
+            <h3 style="margin:0.85rem 0 0.35rem 0; font-size:1.3rem; color:var(--navy);" id="quizTermDisplay">Term</h3>
+            <p style="font-size:0.86rem; color:var(--text-muted); margin:0;">Select the accurate field definition below:</p>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div style="margin-top:1rem;">
+              <button class="btn btn-outline" type="button" onclick="nextQuizQuestion()">Next Term &rarr;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="form-group">
+          <input type="text" id="slangSearchInput" placeholder="Search 100+ field slang terms, tools, chemicals, or trade scopes..." oninput="renderTradesAndSlang()" />
+        </div>
+
+        <div class="trade-pill-bar" id="tradePillBar"></div>
+
+        <!-- Trade Scope & Supplies Summary -->
+        <div class="trade-overview-box" id="tradeOverviewBox"></div>
+
+        <!-- Slang Cards Grid -->
+        <div class="grid-3" id="slangCardsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 3: AUTOMATED PRICING & MARGIN CALCULATOR              -->
+    <!-- ========================================================= -->
+    <section id="tab-calc" class="tab-panel">
+      <div class="card">
+        <h2 class="card-title">Automated Trade Estimation &amp; Profit Margin Calculator</h2>
+        <p class="card-desc">Calculate labor hours, chemical/material allowances, subcontractor buy-cost, and client bill rate with real-time gross margin controls.</p>
+
+        <div class="grid-2">
+          <div>
+            <div class="form-group">
+              <label for="calcTradeSelect">Select Estimation Model</label>
+              <select id="calcTradeSelect" onchange="switchCalcInputs()">
+                <option value="janitorial">1. Janitorial &amp; Custodial (CSF &amp; Production Rate)</option>
+                <option value="hvac">2. HVAC Quarterly Preventive Maintenance (RTU Count)</option>
+                <option value="handyman">3. Commercial Handyman &amp; Repairs (T&amp;M + Markup)</option>
+                <option value="painting">4. Cosmetic Maintenance &amp; Painting (Wall Sq Ft &amp; Coats)</option>
+                <option value="pest">5. Commercial Pest Control (IPM Monthly + Bait Stations)</option>
+              </select>
+            </div>
+
+            <!-- Dynamic Trade Inputs -->
+            <div id="calcInputsContainer"></div>
+
+            <div class="form-group">
+              <label for="calcMarginSlider">Target Gross Profit Margin: <span id="marginPctLabel" style="color:var(--slate-blue);">28%</span></label>
+              <input type="range" id="calcMarginSlider" min="15" max="45" value="28" oninput="runCalculation()" />
+            </div>
+          </div>
+
+          <div>
+            <div style="background:#f8fafc; border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.15rem;">
+              <h3 style="margin:0 0 0.5rem 0; font-size:1rem; color:var(--navy);">Live Financial Breakdown</h3>
+              <p id="calcFormulaNote" style="font-size:0.83rem; color:var(--text-muted); margin:0 0 0.75rem 0;"></p>
+
+              <div class="calc-kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-label">Est. Labor / Units</div>
+                  <div class="kpi-val" id="kpiMetric1">0 hrs</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Direct Vendor Cost</div>
+                  <div class="kpi-val" id="kpiVendorCost">$0.00</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Agile Gross Profit</div>
+                  <div class="kpi-val" style="color:var(--success-text);" id="kpiProfit">$0.00</div>
+                </div>
+                <div class="kpi-card highlight">
+                  <div class="kpi-label">Client Quote Price</div>
+                  <div class="kpi-val" id="kpiClientPrice">$0.00</div>
+                </div>
+              </div>
+
+              <div style="margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+                <button class="btn btn-primary" type="button" onclick="sendCalcToQuote()">Push Estimate to Quotation Builder &rarr;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 4: SOW & QUOTATION GENERATOR                          -->
+    <!-- ========================================================= -->
+    <section id="tab-sow" class="tab-panel">
+      <div class="grid-2">
+        <!-- Pre-Contract Checklist -->
+        <div class="card">
+          <h2 class="card-title">Pre-Contract Document Pipeline Checklist</h2>
+          <p class="card-desc">Track the 5 mandatory pre-contract documents before issuing a binding Master Services Agreement (MSA).</p>
+
+          <label class="checklist-item">
+            <input type="checkbox" checked />
+            <div>
+              <strong>1. Capability Statement / EOI</strong>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Sent at initial RFP intake outlining all 10 trade capabilities, EMR safety score, and $5M COI limits.</div>
+            </div>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" checked />
+            <div>
+              <strong>2. Site Walkthrough Audit Form</strong>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Completed 24–72 hrs post-contact with CSF measurements, RTU counts, and access notes.</div>
+            </div>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" />
+            <div>
+              <strong>3. Preliminary Non-Binding Estimate</strong>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Early budget ballpark range with explicit "Subject to Physical Walkthrough" disclaimer.</div>
+            </div>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" />
+            <div>
+              <strong>4. Detailed Scope of Work (SOW)</strong>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Defines task frequencies (Daily/Weekly/Quarterly), consumables, SLAs, and explicit exclusions.</div>
+            </div>
+          </label>
+          <label class="checklist-item">
+            <input type="checkbox" />
+            <div>
+              <strong>5. Formal Commercial Quotation</strong>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Binding itemized pricing, Net 30 payment terms, Change Order rules, and signature block.</div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Quotation Generator Form -->
+        <div class="card">
+          <h2 class="card-title">Automated SOW &amp; Commercial Quotation Builder</h2>
+          <p class="card-desc">Fill in the account details below to auto-generate a client-ready Scope of Work and Commercial Quotation.</p>
+
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="qClientName">Client / Account Legal Name</label>
+              <input type="text" id="qClientName" value="Signature Aviation - National Ops" oninput="generateQuoteDoc()" />
+            </div>
+            <div class="form-group">
+              <label for="qSiteAddress">Service Location / Site Address</label>
+              <input type="text" id="qSiteAddress" value="Building 4, Hangar Bay B, Dallas, TX" oninput="generateQuoteDoc()" />
+            </div>
+          </div>
+
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="qTrade">Primary Trade Template</label>
+              <select id="qTrade" onchange="generateQuoteDoc()">
+                <option value="janitorial">Janitorial &amp; Custodial Maintenance</option>
+                <option value="handyman">Commercial Handyman &amp; Loading Dock PM</option>
+                <option value="hvac">HVAC Quarterly Preventive Maintenance</option>
+                <option value="painting">Cosmetic Maintenance &amp; Interior Painting</option>
+                <option value="pest">Commercial Pest Control (IPM)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="qPrice">Quoted Contract Amount ($)</label>
+              <input type="number" id="qPrice" value="4975.00" step="0.01" oninput="generateQuoteDoc()" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="qBillingCycle">Billing Frequency / Schedule</label>
+            <select id="qBillingCycle" onchange="generateQuoteDoc()">
+              <option value="Monthly Recurring (Net 30)">Monthly Recurring (Net 30)</option>
+              <option value="Quarterly Preventive Maintenance (Net 30)">Quarterly Preventive Maintenance (Net 30)</option>
+              <option value="One-Time Project / Work Order (Net 30)">One-Time Project / Work Order (Net 30)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Proposal Preview -->
+      <div class="card">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0.75rem; margin-bottom:0.85rem;">
+          <h3 style="margin:0; font-size:1.05rem; color:var(--navy);">Live Generated SOW &amp; Formal Quotation Document</h3>
+          <div style="display:flex; gap:0.5rem;" class="no-print">
+            <button class="btn btn-primary" type="button" onclick="copyQuoteText()">Copy Document to Clipboard</button>
+            <button class="btn btn-outline" type="button" onclick="window.print()">Print / Save PDF</button>
+          </div>
+        </div>
+        <div class="quote-doc-container">
+          <div class="quote-doc-banner">
+            <div>
+              <img
+                src="1fe399ce-3ccb-41db-9cbc-18e40af749b2.png"
+                alt="Agile Facility Solutions"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+              />
+              <svg style="display:none; height:2.85rem; width:auto;" viewBox="0 0 340 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agile Facility Solutions">
+                <path d="M12 42 C48 22, 128 20, 146 46 C154 57, 148 70, 134 78 C142 64, 136 48, 114 39 C86 28, 42 32, 12 42 Z" fill="#f9c835"/>
+                <path d="M26 52 C8 68, 22 92, 68 95 C98 97, 126 91, 145 83 C122 89, 92 91, 66 86 C32 80, 22 65, 26 52 Z" fill="#0095d9"/>
+                <polygon points="68,8 22,102 40,102 68,42 96,102 114,102" fill="#0d255e"/>
+                <text x="118" y="88" font-family="Georgia, 'Times New Roman', serif" font-weight="900" font-size="68" fill="#0d255e" letter-spacing="-1">gile</text>
+                <text x="206" y="104" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="13" fill="#0d255e" letter-spacing="3.5">FACILITY</text>
+                <text x="172" y="118" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="13" fill="#0d255e" letter-spacing="3.2">SOLUTIONS</text>
+              </svg>
+            </div>
+            <div style="text-align:right; font-size:0.82rem; color:var(--text-muted);">
+              <strong style="color:var(--navy); font-size:0.95rem;">AGILE FACILITY SOLUTIONS, INC.</strong><br>
+              Prime Commercial Facility Management &amp; Multi-Trade Contracting<br>
+              <span style="color:var(--slate-blue); font-weight:700;">Prepared by: Jowie Corrado, Vendor Coordinator</span>
+            </div>
+          </div>
+          <div class="doc-preview" id="generatedQuoteOutput"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB 5: COI & STATE WC COMPLIANCE CHECKER                  -->
+    <!-- ========================================================= -->
+    <section id="tab-coi" class="tab-panel">
+      <div class="card">
+        <h2 class="card-title">Automated Subcontractor COI &amp; State Workers' Comp Compliance Checker</h2>
+        <p class="card-desc">Select the subcontractor's trade capability and the US state where the facility is located to verify required ACORD 25 policy limits, specialty endorsements, and Workers' Compensation exemption rules.</p>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="coiTradeSelect">1. Select Subcontractor Trade Capability</label>
+            <select id="coiTradeSelect" onchange="runComplianceCheck()">
+              <option value="janitorial">1. Janitorial, Housekeeping &amp; Custodial Services</option>
+              <option value="handyman">2. Handyman Services &amp; Light Construction</option>
+              <option value="hvac">3. HVAC Maintenance &amp; Repair</option>
+              <option value="pest">4. Commercial Pest Control</option>
+              <option value="cleanroom">5. Controlled Environment Cleaning</option>
+              <option value="painting">6. Cosmetic Maintenance &amp; Painting</option>
+              <option value="grounds">7. Grounds Maintenance, Landscaping &amp; Snow Removal</option>
+              <option value="industrial">8. Industrial Cleaning Services</option>
+              <option value="security">9. Security Guard Services</option>
+              <option value="restoration">10. Specialty Surface Restoration &amp; Maintenance</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="coiStateSelect">2. Select Job Site State (All 50 States + DC)</label>
+            <select id="coiStateSelect" onchange="runComplianceCheck()"></select>
+          </div>
+        </div>
+
+        <div id="complianceOutput"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toastMsg">Copied to clipboard!</div>
+
+  <script>
+    /* =====================================================================
+       DATA LAYER: 6 OPERATIONAL PHASES
+       ===================================================================== */
+    const PHASES = [
+      {
+        num: "Phase 01",
+        title: "Deal Intake & Bidding",
+        sla: "1 to 14 Days",
+        summary: "Client issues an RFP, recurring MSA request, or reactive Work Order. Agile evaluates cleanable square footage, asset lists, and SLA response windows.",
+        actions: [
+          "Log opportunity in CMMS/CRM and review client SLA penalties.",
+          "Send Capability Statement / EOI if onboarding a new enterprise logo.",
+          "Identify whether a physical site walkthrough is required prior to pricing."
+        ]
+      },
+      {
+        num: "Phase 02",
+        title: "Site Visit & Audit",
+        sla: "24 to 72 Hours",
+        summary: "Field assessor or prospective vendor conducts a physical walkthrough to verify measurements, roof/lift access, and pre-existing equipment conditions.",
+        actions: [
+          "Document cleanable square footage (CSF), floor types, and fixture counts.",
+          "Record HVAC RTU model/serial plates, tonnage, and filter sizes.",
+          "Note security badging rules, loading dock access, and utility hookups."
+        ]
+      },
+      {
+        num: "Phase 03",
+        title: "Vendor Sourcing",
+        sla: "24 to 48 Hours",
+        summary: "Vendor Coordinator solicits 2–3 competitive local subcontractor bids and negotiates buy-rates to achieve Agile's 25%–35% gross margin target.",
+        actions: [
+          "Filter Agile's vendor database by trade capability, ZIP radius, and past QA rating.",
+          "Issue blind Scope of Work (SOW) to 2–3 vetted local vendors for apples-to-apples quotes.",
+          "Confirm technician availability for required night-shift or emergency response windows."
+        ]
+      },
+      {
+        num: "Phase 04",
+        title: "COI & Onboarding",
+        sla: "1 to 3 Days",
+        summary: "Mandatory compliance verification before issuing any field dispatch. Zero vendors step onto a client property without cleared insurance and tax forms.",
+        actions: [
+          "Collect IRS Form W-9 and executed Master Subcontractor Agreement.",
+          "Verify ACORD 25 COI naming Agile and Client as Additional Insured (CG 20 10 / CG 20 37).",
+          "Verify Workers' Compensation policy or state-valid WC Exemption Certificate."
+        ]
+      },
+      {
+        num: "Phase 05",
+        title: "Dispatch & Execution",
+        sla: "Scheduled Window",
+        summary: "Work Order issued with strict Not-To-Exceed (NTE) cap. Technicians check in via IVR/CMMS mobile app and capture mandatory Before/After photos.",
+        actions: [
+          "Dispatch formal Work Order specifying NTE dollar cap and check-in instructions.",
+          "Enforce hard stop if repair exceeds NTE; require photo proof before approving NTE increase.",
+          "Track real-time arrival via CMMS geofencing or IVR check-in logs."
+        ]
+      },
+      {
+        num: "Phase 06",
+        title: "QA & Invoicing",
+        sla: "24 to 48 Hours",
+        summary: "Quality Assurance reviews timestamped completion photos and signed work tickets, approves vendor payout, and generates consolidated client billing.",
+        actions: [
+          "Audit Before & After photos against every line item in the Scope of Work.",
+          "Verify signed client Work Order Completion Form is attached to vendor invoice.",
+          "Approve vendor AP bill and issue client AR invoice per Net 30 contract terms."
+        ]
+      }
+    ];
+
+    /* =====================================================================
+       DATA LAYER: ALL 10 TRADES & 90+ FIELD SLANG TERMS
+       ===================================================================== */
+    const TRADES_DATA = [
+      {
+        id: "handyman",
+        name: "1. Handyman Services",
+        tag: "General Building Trades & Light Commercial Construction",
+        scope: "Far more than door hardware—commercial handymen serve as the facility's general multi-trade maintenance and light commercial construction division. Includes drywall framing, tenant improvements (TI), drop-ceiling grid installs, minor plumbing/electrical, millwork, and heavy loading dock maintenance.",
+        supplies: "Drywall sheets, joint compound ('mud'), mesh tape, toggle bolts, hydraulic door closers, Sloan/Zurn flushometer kits, P-traps, 20-gauge metal studs, 2x4 ceiling tiles, hydraulic cement, backer rod, continuous hinges.",
+        slang: [
+          { term: "Dock Leveler", def: "Mechanical, hydraulic, or air-bag adjustable steel platform recessed into a loading dock pit that bridges the height gap between the warehouse floor and a semi-trailer bed." },
+          { term: "Tuck Leveling / Tuck Pointing", def: "Grinding out deteriorated mortar between brick/CMU masonry joints and packing fresh mortar, or leveling concrete edges and steel pit curbs at loading docks." },
+          { term: "Panic Hardware / Crash Bar", def: "Spring-loaded horizontal push-bar mounted across the inside of emergency exit doors that unlatches immediately when pushed, required by fire codes." },
+          { term: "Mudding & Taping", def: "Applying drywall joint compound ('mud') and paper/mesh tape over raw drywall seams and screw heads, followed by sanding smooth prior to primer and paint." },
+          { term: "Drop Ceiling / T-Bar Grid", def: "Suspended metal grid framework hanging on wires below the structural deck that holds removable 2'x2' or 2'x4' acoustic mineral-fiber ceiling tiles." },
+          { term: "Flushometer", def: "Tankless, high-pressure commercial water valve (such as Sloan or Zurn) mounted above commercial toilets and urinals that delivers a metered flush volume." },
+          { term: "Continuous Hinge (Roton)", def: "Heavy-duty geared aluminum hinge running the entire vertical height of a commercial door to distribute weight evenly and prevent heavy traffic doors from sagging." },
+          { term: "Mortise Lockset", def: "High-security commercial lock assembly that fits inside a rectangular pocket (mortise) machined directly into the edge of the door." },
+          { term: "Astragal", def: "Vertical molding or weatherstrip bar attached to the meeting edge of double doors to seal the center gap against drafts, dust, and forced entry." },
+          { term: "Backer Rod", def: "Compressible closed-cell foam rope stuffed into deep concrete expansion joints so caulk adheres only to the two side walls and flexes without tearing." },
+          { term: "Escutcheon", def: "Decorative or protective metal trim plate surrounding a pipe penetration, sprinkler head, or door lock cylinder to cover rough cutout holes." },
+          { term: "Punch List", def: "Final itemized checklist of minor defects, touch-ups, and incomplete adjustments compiled during a walkthrough that must be resolved before final payment." }
+        ]
+      },
+      {
+        id: "pest",
+        name: "2. Commercial Pest Control",
+        tag: "Health Compliance, Exclusion & Vector Abatement",
+        scope: "Protects commercial, food-processing, healthcare, and warehouse facilities from structural wood-destroying organisms, disease vectors, rodents, and stored-product pests using regulatory Integrated Pest Management (IPM).",
+        supplies: "Tamper-resistant weighted rodent bait stations, bromadiolone bait blocks, tin-cat multi-catch traps, sticky glue boards, copper mesh (Stuffit), polyurethane foam, gel baits, IGRs, UV Insect Light Traps, B&G sprayers.",
+        slang: [
+          { term: "IPM (Integrated Pest Mgmt)", def: "Science-based protocol prioritizing sanitation, structural exclusion, habitat modification, and targeted mechanical/gel treatments rather than blind blanket spraying." },
+          { term: "Exclusion", def: "Physically sealing entry gaps (1/4 inch for mice, 1/2 inch for rats) under dock doors, around utility pipes, and along roof flashings using copper mesh and door sweeps." },
+          { term: "Harborage", def: "Any dark, sheltered void, cardboard stack, floor drain, or overgrown landscaping near a building where pests hide, nest, and breed." },
+          { term: "Bait Station (RBS)", def: "Locked, tamper-resistant plastic or metal box anchored along exterior building perimeters containing rodenticide blocks safe from non-target animals." },
+          { term: "IGR (Insect Growth Regulator)", def: "Specialized chemical compound that mimics insect hormones to disrupt molting and sterilize adult pests, breaking the reproductive breeding cycle." },
+          { term: "ILT (Insect Light Trap)", def: "Wall-mounted commercial fly trap utilizing ultraviolet UV-A bulbs to lure flying insects onto concealed adhesive glue boards without scattering insect fragments." },
+          { term: "Thermal Remediation", def: "Using high-output heaters and fans to raise an enclosed room's temperature to 120°F–140°F for several hours, killing bed bugs and eggs in one visit." },
+          { term: "Pheromone Trap", def: "Non-toxic monitoring trap baited with synthetic scents to detect stored-product pests (Indian meal moths, cigarette beetles) in warehouses." },
+          { term: "Vector Control", def: "Targeted suppression of organisms (rats, mosquitoes, ticks, flies) capable of transmitting pathogens to humans or contaminating food supply chains." }
+        ]
+      },
+      {
+        id: "cleanroom",
+        name: "3. Controlled Environment Cleaning",
+        tag: "ISO Cleanrooms, Data Centers & Sterile Labs",
+        scope: "Precision micro-contamination and particulate control inside environments where microscopic dust, fibers, static electricity, or microbes can ruin semiconductor wafers, crash data center servers, or contaminate pharmaceuticals.",
+        supplies: "True HEPA & ULPA cleanroom vacuums, laser airborne particle counters, sterile 70% IPA / 30% DI water blends, non-shedding polyester wipes, ESD-safe floor finish, Tyvek bunny suits, sticky tacky mats.",
+        slang: [
+          { term: "ISO Class (1 through 9)", def: "International standard classifying cleanroom air purity by maximum allowable airborne particles per cubic meter (ISO 1 is strictest; ISO 5–8 are common)." },
+          { term: "Sub-Floor Decontamination", def: "Systematic lifting of raised access floor tiles in data centers to HEPA-vacuum dust, zinc whiskers, and debris from concrete sub-floors and cable trays." },
+          { term: "ESD (Electrostatic Discharge)", def: "Sudden flow of static electricity between charged objects that can destroy sensitive microchips; prevented using conductive floors and static-dissipative finishes." },
+          { term: "ULPA Filter", def: "Ultra-Low Particulate Air filter engineered to trap at least 99.999% of airborne particles down to 0.12 microns in diameter (even finer than HEPA)." },
+          { term: "Plenum Space", def: "The enclosed pressurized air-handling void beneath a raised data center floor or above a suspended ceiling used to circulate chilled air to server racks." },
+          { term: "Gowning / Bunny Suit", def: "Full-body, lint-free hooded coverall, face mask, goggles, and knee-high booties worn by technicians inside gowning airlocks to contain skin flakes and hair." },
+          { term: "Sticky Mat (Tacky Mat)", def: "Multi-layered adhesive peel-off floor mat placed at cleanroom airlock thresholds to strip particulate contaminants off shoe covers and cart wheels." },
+          { term: "Zinc Whiskers", def: "Microscopic conductive metal filaments that grow off electroplated zinc steel raised-floor tiles, break loose into server airflow, and short-circuit electronics." }
+        ]
+      },
+      {
+        id: "painting",
+        name: "4. Cosmetic Maintenance & Painting",
+        tag: "Architectural Finishes, Electrostatic & Protective Coatings",
+        scope: "Restoring visual aesthetics, protecting structural substrates from corrosion and moisture intrusion, and maintaining safety markings across commercial offices, retail storefronts, and industrial warehouses.",
+        supplies: "Airless paint sprayers, electrostatic spray guns, HVLP sprayers, scissor lifts, canvas drop cloths, 6-mil poly sheeting, low-VOC acrylic latex paints, PVA primer, elastomeric coatings, epoxy traffic paint.",
+        slang: [
+          { term: "Cutting-In", def: "Using an angled sash brush to manually paint crisp, straight borders along ceiling lines, corners, baseboards, and window trim before rolling the main wall field." },
+          { term: "Flashing", def: "Uneven sheen, dull spots, or shiny patches visible on a painted wall caused by unprimed drywall mud absorbing paint differently than surrounding painted drywall." },
+          { term: "Mil Thickness (WFT / DFT)", def: "Measurement of coating thickness in thousandths of an inch (1 mil = 0.001\"), measured either as Wet Film Thickness (WFT) or Dry Film Thickness (DFT)." },
+          { term: "Substrate", def: "The underlying structural material surface (drywall, CMU block, poured concrete, structural steel, wood) to which primer or paint is applied." },
+          { term: "Electrostatic Painting", def: "Applying a negative electrical charge to atomized paint particles so they magnetically wrap around grounded metal surfaces (lockers, frames) with zero overspray." },
+          { term: "Elastomeric Coating", def: "High-build, ultra-flexible exterior masonry coating capable of stretching over hairline stucco/concrete cracks to create a watertight weather barrier." },
+          { term: "Back-Rolling", def: "Immediately following an airless paint sprayer with a wet paint roller to work the sprayed coating uniformly into porous masonry or stucco pores." },
+          { term: "Skim Coating", def: "Applying a thin, smooth layer of diluted drywall joint compound across an entire damaged or textured wall surface to create a Level 5 glass-smooth finish." },
+          { term: "Holiday", def: "Painter slang for a missed spot, pinhole, or thin gap left uncoated on a painted surface during application." }
+        ]
+      },
+      {
+        id: "grounds",
+        name: "5. Grounds, Landscaping & Snow",
+        tag: "Exterior Property, Turf, Irrigation & Winter Ice Ops",
+        scope: "Year-round exterior asset care encompassing commercial turf management, ornamental bed maintenance, irrigation backflow compliance, storm-water drainage, hardscaping, and zero-tolerance winter snow/ice mitigation.",
+        supplies: "Commercial zero-turn mowers, 2-cycle string trimmers, backpack blowers, pre-emergent herbicides, hardwood mulch, RPZ backflow assemblies, plow trucks, skid-steer box pushers, V-box salt spreaders, liquid brine, calcium chloride.",
+        slang: [
+          { term: "Hardscaping", def: "Non-living architectural landscape elements including interlocking concrete pavers, segmental retaining walls, stone walkways, and French drains." },
+          { term: "Anti-Icing (Pre-Treating)", def: "Spraying liquid salt brine (23.3% salinity) onto asphalt parking lots and walkways 12–24 hours BEFORE a snowstorm to prevent ice from bonding to pavement." },
+          { term: "De-Icing", def: "Applying solid rock salt (sodium chloride) or calcium chloride pellets AFTER snow accumulation and plowing to melt bonded ice down to bare pavement." },
+          { term: "Backflow Assembly (RPZ)", def: "Reduced Pressure Zone mechanical valve installed on irrigation mainlines and certified annually to prevent fertilized water from siphoning into city drinking water." },
+          { term: "Zero-Turn Mower", def: "Commercial lawn mower with independent hydraulic wheel motors allowing a 0-degree turning radius for high-speed mowing around trees and beds." },
+          { term: "Retention vs. Detention Pond", def: "A retention pond holds a permanent pool of water year-round; a detention pond (dry pond) temporarily holds storm-water runoff after rain and drains dry." },
+          { term: "Box Plow / Snow Pusher", def: "Heavy-duty containment blade with side wings mounted on skid steers or wheel loaders to push massive volumes of snow without spilling off the sides." },
+          { term: "Trigger Depth (e.g., 2\" Trigger)", def: "Contractual snow threshold specifying the exact inch accumulation (e.g., 1\", 2\", or zero-tolerance) that automatically triggers plow dispatch." }
+        ]
+      },
+      {
+        id: "hvac",
+        name: "6. HVAC Maintenance & Repair",
+        tag: "Mechanical Climate Control & Building Automation",
+        scope: "Preventive maintenance, diagnostics, mechanical repair, and capital replacement of commercial heating, ventilation, refrigeration, and building automation systems to maintain indoor air quality (IAQ).",
+        supplies: "MERV-8 to MERV-16 pleated filters, V-belts (A/B/BX series), digital manifold gauge sets, micron vacuum pumps, nitrogen tanks, EPA recovery cylinders, R-410A / R-407C refrigerants, foaming coil cleaner, contactors, capacitors, TXVs.",
+        slang: [
+          { term: "RTU (Rooftop Unit)", def: "Self-contained packaged commercial HVAC system mounted on a roof curb that houses heating, cooling, and blower fans in a single weatherproof cabinet." },
+          { term: "VAV Box (Variable Air Volume)", def: "Ceiling-mounted zone terminal box containing a motorized damper (and often a reheat coil) that modulates conditioned airflow into individual office zones." },
+          { term: "Economizer", def: "Motorized outdoor-air damper assembly on an RTU that pulls in cool outside air for 'free cooling' when outdoor ambient temperatures drop below ~60°F." },
+          { term: "CFM (Cubic Feet per Minute)", def: "Standard airflow volume measurement; commercial HVAC typically requires ~400 CFM per ton of cooling capacity." },
+          { term: "MERV Rating (1–16)", def: "Minimum Efficiency Reporting Value measuring an air filter's ability to capture airborne particles (commercial offices typically use MERV-11 to MERV-13)." },
+          { term: "TXV (Thermostatic Expansion Valve)", def: "Precision metering device that regulates the flow of liquid refrigerant into the evaporator coil based on temperature and pressure to maintain proper superheat." },
+          { term: "BAS / BMS (Building Automation)", def: "Centralized Direct Digital Control (DDC) computer network (Tridium, Honeywell, JCI) managing HVAC schedules, setpoints, and alarms." },
+          { term: "Delta-T (ΔT)", def: "Temperature difference between return air entering an HVAC unit and supply air leaving it; a healthy cooling ΔT is typically 16°F to 20°F." },
+          { term: "Air Balancing (TAB)", def: "Testing, Adjusting, and Balancing ductwork dampers and fan sheaves using capture hoods and manometers so every room receives design-specified CFM." }
+        ]
+      },
+      {
+        id: "industrial",
+        name: "7. Industrial Cleaning Services",
+        tag: "Heavy Manufacturing, Warehouses & Overhead Structures",
+        scope: "Heavy-duty mechanical and chemical decontamination inside factories, distribution centers, automotive plants, and food-processing facilities where heavy grease, combustible dust, and high-elevation structural grime accumulate.",
+        supplies: "Industrial ride-on scrubber-sweepers, Class II Div 2 explosion-proof vacuums, articulated boom lifts, scissor lifts, dry ice pellet blasters, butyl/alkaline degreasers, oil-absorbent booms, full-face respirators, fall-arrest harnesses, LOTO locks.",
+        slang: [
+          { term: "High-Dusting", def: "Using aerial lifts and HEPA backpack vacuums to remove accumulated dust, lint, and cobwebs from roof rafters, bar joists, sprinkler pipes, and ducts >15 ft high." },
+          { term: "Dry Ice Blasting", def: "Non-abrasive cleaning method propelling solid CO2 pellets at supersonic speeds; pellets sublimate into gas on impact, leaving zero water or grit waste." },
+          { term: "Hydro-Blasting", def: "Ultra-high-pressure water jetting (10,000 to 40,000 PSI) used to strip baked-on scale, cured polymers, or paint from heat exchangers, tanks, and grates." },
+          { term: "Combustible Dust (NFPA 652)", def: "Fine airborne particulates (flour, sugar, sawdust, aluminum, plastic) that can cause flash fires or explosions if allowed to accumulate >1/32\" on overhead beams." },
+          { term: "Explosion-Proof Vacuum", def: "Pneumatic (air-operated) or intrinsically safe vacuum grounded against static sparks, mandatory when vacuuming combustible dusts." },
+          { term: "Oil/Water Separator", def: "Multi-chamber in-ground concrete vault in industrial garages and wash bays that separates floating motor oil and heavy sludge before wastewater enters city sewers." },
+          { term: "Confined Space Entry", def: "OSHA-regulated safety protocol (29 CFR 1910.146) requiring air-quality gas monitors, retrieval tripods, and a topside attendant before entering tanks or silos." },
+          { term: "LOTO (Lockout/Tagout)", def: "Mandatory safety procedure locking electrical disconnects in the OFF position before technicians clean inside conveyors, presses, or industrial machinery." }
+        ]
+      },
+      {
+        id: "janitorial",
+        name: "8. Janitorial & Custodial Services",
+        tag: "Daily Sanitation, Day Porters & Commercial Floor Care",
+        scope: "Recurring daily and nightly sanitation, restroom hygiene, consumable supply replenishment, and periodic restorative floor care for corporate offices, retail stores, medical clinics, and educational campuses.",
+        supplies: "Walk-behind auto-scrubbers, 175 RPM swing buffers, 2,000 RPM burnishers, hot-water carpet extractors, HEPA backpack vacuums, color-coded microfiber cloths, neutral pH cleaner, quaternary ammonium ('quat'), acrylic floor wax, stripper.",
+        slang: [
+          { term: "Day Porter", def: "Uniformed custodial attendant stationed on-site during active business hours to continuously police lobbies, restock restrooms, wipe spills, and empty trash." },
+          { term: "Strip & Wax", def: "Deep restorative process using strong alkaline stripper and black abrasive pads to dissolve all old wax down to bare VCT tile, followed by 4–6 fresh coats." },
+          { term: "Top & Recoat (Scrub & Recoat)", def: "Intermediate floor maintenance using a blue/green pad and neutral cleaner to abrade only the top 1–2 scuffed layers of wax before applying 2 fresh finish coats." },
+          { term: "Burnishing", def: "Polishing cured floor finish at ultra-high rotational speeds (1,500–3,000 RPM) with a hog's hair pad to friction-heat the wax into a hard, glossy 'wet look.'" },
+          { term: "CSF (Cleanable Square Footage)", def: "Actual floor space requiring janitorial labor, calculated by subtracting mechanical rooms, elevator shafts, and structural columns from Gross Square Footage." },
+          { term: "Quat (Quaternary Ammonium)", def: "Hospital-grade broad-spectrum disinfectant used on restroom fixtures and touch-points; requires a specific wet 'dwell time' (3–10 minutes) to kill pathogens." },
+          { term: "Dwell Time (Contact Time)", def: "The exact number of minutes a disinfectant solution must remain visibly wet on a surface to achieve its EPA-registered kill claim against viruses and bacteria." },
+          { term: "Microfiber Color-Coding", def: "Cross-contamination prevention system: Red for toilets/urinals, Yellow for bathroom sinks, Blue for glass/mirrors, and Green for general office dusting." },
+          { term: "Bonnet / Encapsulation Cleaning", def: "Low-moisture interim carpet cleaning applying polymer crystallizing shampoo that traps soil so it vacuums away, drying in under 60 minutes." }
+        ]
+      },
+      {
+        id: "security",
+        name: "9. Security Guard Services",
+        tag: "Physical Access Control, Patrols & Life-Safety Watch",
+        scope: "Uniformed physical security personnel protecting commercial real estate, industrial distribution yards, construction sites, and corporate campuses against unauthorized entry, theft, vandalism, and fire hazards.",
+        supplies: "Branded guard uniforms, guard tour NFC/RFID wanding systems, body-worn cameras, UHF two-way radios, tactical flashlights, ANSI Class 2 high-vis vests, marked patrol vehicles with amber lightbars, visitor tablets.",
+        slang: [
+          { term: "Fire Watch", def: "Mandatory continuous patrol by dedicated guards keeping written 15-to-30-minute logs whenever a building's fire alarm or sprinkler system is offline for repairs." },
+          { term: "Post Orders", def: "The site-specific operational manual housed at the security desk dictating exact patrol routes, emergency phone trees, authorized access lists, and escalation protocols." },
+          { term: "Wanding Point / Guard Tour", def: "Small RFID/NFC electronic checkpoints mounted at strategic corners across a facility that guards tap with a wand/phone to prove they walked their patrol on time." },
+          { term: "DAR (Daily Activity Report)", def: "Chronological shift log completed by every security officer recording patrol times, visitor entries, deliveries, unlocked doors found, and unusual observations." },
+          { term: "Incident Report (IR)", def: "Formal, factual report written immediately following any security breach, slip-and-fall injury, property damage, theft, or police/EMS dispatch on site." },
+          { term: "Roving Patrol", def: "Mobile guard (on foot, golf cart, or marked vehicle) continuously patrolling large parking lots, warehouse perimeters, or multiple adjacent buildings." },
+          { term: "BOL & Seal Verification", def: "Logistics gatehouse procedure where guards match a departing truck driver's Bill of Lading paperwork against the numbered tamper seal locked on the trailer doors." },
+          { term: "Tailgating / Piggybacking", def: "Security breach occurring when an unauthorized person walks closely behind an employee through a badge-controlled door without scanning their own credential." }
+        ]
+      },
+      {
+        id: "restoration",
+        name: "10. Specialty Surface Restoration",
+        tag: "Concrete Engineering, Stone Honing & Resinous Coatings",
+        scope: "Mechanical grinding, chemical densification, resinous coating installation, and architectural restoration of concrete slabs, natural stone (marble, granite, terrazzo), ceramic tile, and architectural metals.",
+        supplies: "3-phase planetary concrete grinders, metal-bond & resin-bond diamond tooling pucks (30 to 3,000-grit), steel shot-blasters, floor scarifiers, HEPA dust extractors, lithium silicate densifiers, 100%-solids epoxy, polyaspartic topcoats, vinyl flakes.",
+        slang: [
+          { term: "Shot Blasting", def: "Dustless mechanical surface prep propelling thousands of tiny steel shot balls at high velocity onto concrete to create a rough anchor profile (CSP 3–5) for epoxy." },
+          { term: "Diamond Honing", def: "Grinding natural stone (marble, travertine, limestone) or concrete using progressively finer industrial diamond-embedded pads to remove scratches and lippage." },
+          { term: "Epoxy Flake System", def: "Multi-coat decorative resinous floor consisting of a pigmented epoxy base coat, full-broadcast colored vinyl chips, and a clear polyaspartic topcoat." },
+          { term: "Polyaspartic Coating", def: "Rapid-curing aliphatic polyurea coating that cures in 1–2 hours (same-day return to service), resists abrasion, and will not yellow under UV sunlight." },
+          { term: "Concrete Densifier", def: "Liquid lithium or potassium silicate chemical sprayed during concrete polishing that reacts with free lime to form hard calcium silicate hydrate crystals." },
+          { term: "Lippage", def: "Uneven vertical height difference between the edges of adjacent floor tiles or stone slabs, creating a trip hazard that requires diamond grinding." },
+          { term: "Scarifying (Milling)", def: "Aggressive mechanical preparation using a drum fitted with spinning carbide-tipped star wheels to chip away thick failing epoxy or high concrete humps." },
+          { term: "CSP (Concrete Surface Profile)", def: "ICRI 1-to-10 standard measuring concrete surface roughness (CSP 1 is acid-etched smooth; CSP 3–4 is ideal for thin-mil epoxy)." },
+          { term: "MVER (Moisture Vapor Emission)", def: "Testing concrete slabs before installing epoxy; high upward moisture vapor pressure will cause epoxy coatings to blister and delaminate." }
+        ]
+      }
+    ];
+
+    /* =====================================================================
+       DATA LAYER: COI & ALL 50 STATES + DC COMPLIANCE MATRIX
+       ===================================================================== */
+    const COI_TRADES = {
+      janitorial: {
+        name: "Janitorial, Housekeeping & Custodial Services",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit (or Hired & Non-Owned Auto)",
+        specialty: "Janitorial / Fidelity Bond ($25,000–$100,000) covering 3rd-party employee theft/dishonesty."
+      },
+      handyman: {
+        name: "Handyman Services & Light Construction",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit (Owned/Scheduled Autos)",
+        specialty: "Products & Completed Operations coverage; Installation Floater if staging expensive materials on-site."
+      },
+      hvac: {
+        name: "HVAC Maintenance & Repair",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit",
+        specialty: "Umbrella/Excess Liability ($2M–$5M) for rooftop/crane work; Contractor's Pollution Liability ($1M); EPA Section 608 Certification."
+      },
+      pest: {
+        name: "Commercial Pest Control",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit",
+        specialty: "Herbicide / Pesticide Applicator Pollution Endorsement ($1M) — standard GL excludes chemical drift; State Commercial Applicator License."
+      },
+      cleanroom: {
+        name: "Controlled Environment Cleaning",
+        gl: "$2,000,000 Per Occurrence / $4,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit",
+        specialty: "Umbrella Liability ($5M) + Errors & Omissions (E&O / Professional Liability $2M) covering cleanroom contamination or data center downtime."
+      },
+      painting: {
+        name: "Cosmetic Maintenance & Painting",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit",
+        specialty: "Umbrella ($2M) when operating boom/scissor lifts; Pollution Liability if disturbing lead paint or spraying high-VOC industrial coatings."
+      },
+      grounds: {
+        name: "Grounds Maintenance, Landscaping & Snow Removal",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit (Heavy Plow Trucks/Trailers)",
+        specialty: "Umbrella ($2M–$5M) + Explicit Snow & Ice Management Endorsement (many standard GL policies exclude slip-and-fall snow claims)."
+      },
+      industrial: {
+        name: "Industrial Cleaning Services",
+        gl: "$2,000,000 Per Occurrence / $4,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit",
+        specialty: "Umbrella ($5M) + Contractor's Pollution Liability ($2M) + Care, Custody & Control (CCC) endorsement for high-value factory machinery."
+      },
+      security: {
+        name: "Security Guard Services",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit (for Roving Patrol Vehicles)",
+        specialty: "Errors & Omissions (E&O $1M–$2M) + Assault & Battery Endorsement + State Guard Agency License (Armed endorsement if armed post)."
+      },
+      restoration: {
+        name: "Specialty Surface Restoration & Maintenance",
+        gl: "$1,000,000 Per Occurrence / $2,000,000 General Aggregate",
+        wc: "Statutory Limits + $1,000,000 Employer's Liability",
+        auto: "$1,000,000 Combined Single Limit",
+        specialty: "Contractor's Pollution Liability ($1M) covering chemical strippers, silica dust, and epoxy fumes; Umbrella ($2M)."
+      }
+    };
+
+    const US_STATES = [
+      { code: "AL", name: "Alabama", cat: "C", rule: "Category C (Construction vs. Non-Construction Split): General businesses require WC at 5+ employees, EXCEPT construction contractors who require coverage at 1+ employee. Collect signed Sole Proprietor Waiver if exempt." },
+      { code: "AK", name: "Alaska", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners/partners with zero employees are exempt; collect signed Independent Contractor Hold Harmless Waiver." },
+      { code: "AZ", name: "Arizona", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Sole proprietors with zero employees are exempt; collect Arizona ICA Sole Proprietor Waiver." },
+      { code: "AR", name: "Arkansas", cat: "B", rule: "Category B (3-Employee Threshold State): Mandatory WC at 3+ employees (note: certain hazardous/construction subcontractors may trigger at 1+ employee). Collect AR Form WC-3 Exemption / Waiver." },
+      { code: "CA", name: "California", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1+ employee (including part-time/family). Note: Roofing contractors MUST carry WC even with 0 employees. Corporate officers must file formal exclusion waivers." },
+      { code: "CO", name: "Colorado", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1+ employee. True solo owners/LLCs with zero employees must submit a Colorado Division of Workers' Compensation Rejection of Coverage form." },
+      { code: "CT", name: "Connecticut", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1+ employee. Sole proprietors/LLCs with zero employees are exempt; collect CT Form 6B officer/member exclusion if applicable." },
+      { code: "DE", name: "Delaware", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1+ employee. Up to 4 corporate officers/LLC members may elect exemption; collect signed Independent Contractor Hold Harmless Waiver." },
+      { code: "DC", name: "District of Columbia", cat: "A", rule: "Category A (Strict 1-Employee Jurisdiction): Mandatory WC at 1 or more employees. Collect signed Sole Proprietor Hold Harmless Waiver for solo 1099 operators." },
+      { code: "FL", name: "Florida", cat: "C", rule: "Category C (Construction vs. Non-Construction Split): Non-construction trades require WC at 4+ employees. Construction trades (Handyman structural, Painting, HVAC, Restoration) require WC at 1+ employee—up to 3 officers may apply for an official FL DWC Exemption Certificate (verify online via FL DFS portal)." },
+      { code: "GA", name: "Georgia", cat: "B", rule: "Category B (3-Employee Threshold State): Mandatory WC at 3 or more regularly employed workers (corporate officers/LLC members count toward the 3 unless formally excluded via Form WC-10)." },
+      { code: "HI", name: "Hawaii", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "ID", name: "Idaho", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Sole proprietors and working LLC members with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "IL", name: "Illinois", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees (even part-time). Sole proprietors with zero employees are exempt; collect signed Sole Proprietor Hold Harmless Waiver." },
+      { code: "IN", name: "Indiana", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Independent contractors in construction must file an Indiana Certificate of Exemption (Form WCE-1) with the state." },
+      { code: "IA", name: "Iowa", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Sole proprietors and LLC members with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "KS", name: "Kansas", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC for businesses with annual gross payroll over $20,000 or 1+ non-family employee. Collect signed KS Sole Proprietor Waiver." },
+      { code: "KY", name: "Kentucky", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "LA", name: "Louisiana", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Sole proprietors/officers may elect exemption in writing; collect signed Hold Harmless Waiver." },
+      { code: "ME", name: "Maine", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Construction subcontractors without employees must hold a Maine WCB Predetermination of Independent Contractor Status." },
+      { code: "MD", name: "Maryland", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Sole proprietors with zero employees are exempt; collect MD WCC Sole Proprietor Certificate of Compliance." },
+      { code: "MA", name: "Massachusetts", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees (strict enforcement). Sole proprietors with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "MI", name: "Michigan", cat: "B", rule: "Category B (3-Employee Threshold State): Mandatory WC if employer has 3+ employees at one time, OR 1+ employee working 35+ hours/week for 13+ weeks. Collect signed MI Sole Proprietor Waiver." },
+      { code: "MN", name: "Minnesota", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; verify independent contractor registration for building construction." },
+      { code: "MS", name: "Mississippi", cat: "B", rule: "Category B (5-Employee Threshold State): Mandatory WC at 5 or more regular employees. Vendors with fewer than 5 employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "MO", name: "Missouri", cat: "C", rule: "Category C (Construction vs. Non-Construction Split): Non-construction trades require WC at 5+ employees. Construction industry employers MUST carry WC at 1 or more employees (sole proprietors with 0 employees are exempt)." },
+      { code: "MT", name: "Montana", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo independent contractors MUST hold an active Montana Independent Contractor Exemption Certificate (ICEC)." },
+      { code: "NE", name: "Nebraska", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "NV", name: "Nevada", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Licensed contractors in construction must maintain WC or file an official NV Affidavit of Exemption." },
+      { code: "NH", name: "New Hampshire", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "NJ", name: "New Jersey", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees (including all corporate/LLC entities with any active worker). Only true unincorporated sole proprietors with 0 employees are exempt." },
+      { code: "NM", name: "New Mexico", cat: "B", rule: "Category B (3-Employee Threshold State): Mandatory WC at 3 or more employees—EXCEPT construction contractors, who must carry WC at 1 or more employees." },
+      { code: "NY", name: "New York", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1+ employee. Solo owners with zero employees MUST submit an official New York State Form CE-200 (Certificate of Attestation of Exemption)." },
+      { code: "NC", name: "North Carolina", cat: "B", rule: "Category B (3-Employee Threshold State): Mandatory WC at 3 or more employees (corporate officers and LLC members count toward the 3). Collect signed NC Sole Proprietor / Under-3 Waiver." },
+      { code: "ND", name: "North Dakota", cat: "D", rule: "Category D (Monopolistic State Fund): Private carriers cannot write WC in North Dakota. Local vendors must buy from North Dakota Workforce Safety & Insurance (WSI). Out-of-state vendors need Stop-Gap GL coverage." },
+      { code: "OH", name: "Ohio", cat: "D", rule: "Category D (Monopolistic State Fund + 1-Employee Rule): Private carriers cannot write WC in Ohio. Local vendors must hold an active Ohio BWC (Bureau of Workers' Compensation) certificate. Out-of-state vendors need Stop-Gap GL coverage." },
+      { code: "OK", name: "Oklahoma", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners/independent contractors with zero employees must submit an Oklahoma Affidavit of Exempt Status (Form CC-Form-36A)." },
+      { code: "OR", name: "Oregon", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "PA", name: "Pennsylvania", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed PA Workers' Comp Exemption Waiver." },
+      { code: "RI", name: "Rhode Island", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Independent contractors with zero employees must file a RI DLT-11C Notice of Designation as Independent Contractor." },
+      { code: "SC", name: "South Carolina", cat: "B", rule: "Category B (4-Employee Threshold State): Mandatory WC at 4 or more employees. Vendors with fewer than 4 employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "SD", name: "South Dakota", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "TN", name: "Tennessee", cat: "C", rule: "Category C (Construction vs. Non-Construction Split): Non-construction trades require WC at 5+ employees. Construction service providers MUST carry WC at 1+ employee or hold an active Tennessee Construction Services Provider Exemption Registration." },
+      { code: "TX", name: "Texas", cat: "E", rule: "Category E (The Texas Exception — Non-Subscriber State): Texas is the ONLY state where private employers are not legally required to carry statutory WC (unless on public/government contracts). Agile requires TX 'Non-Subscriber' vendors to carry an Occupational Accident Policy ($1M) + signed Hold Harmless Agreement." },
+      { code: "UT", name: "Utah", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners/LLCs with zero employees must hold a Utah Labor Commission Workers' Compensation Coverage Waiver (WCCW)." },
+      { code: "VT", name: "Vermont", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners/LLCs with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "VA", name: "Virginia", cat: "B", rule: "Category B (3-Employee Threshold State): Mandatory WC at 3 or more employees (note: subcontractors' employees can count toward a general contractor's threshold under Virginia statutory employer rules)." },
+      { code: "WA", name: "Washington", cat: "D", rule: "Category D (Monopolistic State Fund + 1-Employee Rule): Private insurers cannot write WC in Washington. Local vendors must hold an active Washington L&I (Dept. of Labor & Industries) account. Out-of-state vendors need Stop-Gap GL coverage." },
+      { code: "WV", name: "West Virginia", cat: "A", rule: "Category A (Strict 1-Employee State): Mandatory WC at 1 or more employees. Solo owners with zero employees are exempt; collect signed Hold Harmless Waiver." },
+      { code: "WI", name: "Wisconsin", cat: "B", rule: "Category B (3-Employee Threshold State): Mandatory WC if employer has 3+ employees, OR pays $500+ in wages in any calendar quarter. Collect signed Hold Harmless Waiver if exempt." },
+      { code: "WY", name: "Wyoming", cat: "D", rule: "Category D (Monopolistic State Fund): Private carriers cannot write WC in Wyoming. Vendors in extrahazardous trades (construction, HVAC, industrial cleaning) must hold a Wyoming Dept. of Workforce Services WC Certificate. Out-of-state vendors need Stop-Gap GL coverage." }
+    ];
+
+    /* =====================================================================
+       TAB NAVIGATION LOGIC
+       ===================================================================== */
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        const target = document.getElementById(btn.getAttribute("data-tab"));
+        if (target) target.classList.add("active");
+      });
+    });
+
+    /* =====================================================================
+       MODULE 1: LIFECYCLE & SITE VISIT DECISION ENGINE
+       ===================================================================== */
+    function initLifecycle() {
+      const grid = document.getElementById("phaseGrid");
+      grid.innerHTML = PHASES.map((p, idx) => `
+        <div class="phase-card ${idx === 0 ? 'active' : ''}" onclick="selectPhase(${idx})">
+          <div class="phase-num">${p.num}</div>
+          <div class="phase-title">${p.title}</div>
+          <div class="phase-sla">SLA: ${p.sla}</div>
+        </div>
+      `).join("");
+      selectPhase(0);
+    }
+
+    function selectPhase(index) {
+      document.querySelectorAll(".phase-card").forEach((c, i) => {
+        c.classList.toggle("active", i === index);
+      });
+      const p = PHASES[index];
+      const box = document.getElementById("phaseDetailBox");
+      box.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">
+          <h3 style="margin:0; font-size:1.08rem; color:var(--navy);">${p.num}: ${p.title}</h3>
+          <span class="badge badge-navy">Target SLA: ${p.sla}</span>
+        </div>
+        <p style="margin:0 0 0.65rem 0; font-size:0.92rem;">${p.summary}</p>
+        <ul style="margin:0; padding-left:1.25rem; font-size:0.88rem; color:var(--text-main);">
+          ${p.actions.map(a => `<li style="margin-bottom:0.35rem;">${a}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    function evaluateSiteVisit() {
+      const trade = document.getElementById("svTrade").value;
+      const scope = document.getElementById("svScopeType").value;
+      const box = document.getElementById("svResultBox");
+
+      let mandatory = false;
+      let headline = "";
+      let reason = "";
+
+      if (scope === "major_install" || scope === "high_elevation") {
+        mandatory = true;
+        headline = "MANDATORY PHYSICAL SITE VISIT REQUIRED";
+        reason = "Capital equipment replacements, structural build-outs, and high-elevation (>15 ft) aerial lift work require physical verification of clearance, roof access, structural substrate, and staging zones prior to binding pricing.";
+      } else if (trade === "restoration" || trade === "cleanroom") {
+        mandatory = true;
+        headline = "MANDATORY PHYSICAL SITE VISIT REQUIRED";
+        reason = "Concrete polishing/epoxy requires slab moisture (MVER) testing, and cleanrooms/data centers require ISO particle classification and gowning airlock inspection prior to quoting.";
+      } else if (scope === "minor_nte") {
+        mandatory = false;
+        headline = "DIRECT DISPATCH ALLOWED (NO SITE VISIT NEEDED)";
+        reason = "Reactive minor repairs under a $750 Not-To-Exceed (NTE) cap can be dispatched immediately using client photos. Technician must stop work and request NTE increase if repairs exceed the cap.";
+      } else {
+        mandatory = false;
+        headline = "DESK ESTIMATE ALLOWED (NO SITE VISIT NEEDED)";
+        reason = "Standard recurring maintenance with verified Cleanable Square Footage (CSF) or unit counts (e.g., RTU counts, exterior bait stations) can be quoted via Desk Estimate formulas.";
+      }
+
+      box.innerHTML = `
+        <span class="badge ${mandatory ? 'badge-warn' : 'badge-success'}">${mandatory ? 'Walkthrough Required' : 'Fast-Track Desk / Direct Dispatch'}</span>
+        <h4 style="margin:0.5rem 0 0.3rem 0; font-size:0.98rem; color:var(--navy);">${headline}</h4>
+        <p style="margin:0; font-size:0.88rem; color:var(--text-muted);">${reason}</p>
+      `;
+    }
+
+    /* =====================================================================
+       MODULE 2: 10 TRADES & SLANG ENCYCLOPEDIA + QUIZ
+       ===================================================================== */
+    let selectedTradeFilter = "all";
+    let quizActive = false;
+    let quizScore = 0;
+    let quizTotal = 0;
+    let currentQuizItem = null;
+
+    function initTradesModule() {
+      const pillBar = document.getElementById("tradePillBar");
+      const allBtn = `<button class="trade-pill active" data-trade="all" onclick="setTradeFilter('all')">All 10 Trades (90+ Terms)</button>`;
+      const tradeBtns = TRADES_DATA.map(t =>
+        `<button class="trade-pill" data-trade="${t.id}" onclick="setTradeFilter('${t.id}')">${t.name}</button>`
+      ).join("");
+      pillBar.innerHTML = allBtn + tradeBtns;
+      renderTradesAndSlang();
+    }
+
+    function setTradeFilter(tradeId) {
+      selectedTradeFilter = tradeId;
+      document.querySelectorAll(".trade-pill").forEach(p => {
+        p.classList.toggle("active", p.getAttribute("data-trade") === tradeId);
+      });
+      renderTradesAndSlang();
+    }
+
+    function renderTradesAndSlang() {
+      const query = document.getElementById("slangSearchInput").value.trim().toLowerCase();
+      const overviewBox = document.getElementById("tradeOverviewBox");
+      const grid = document.getElementById("slangCardsGrid");
+
+      const filteredTrades = selectedTradeFilter === "all"
+        ? TRADES_DATA
+        : TRADES_DATA.filter(t => t.id === selectedTradeFilter);
+
+      if (selectedTradeFilter === "all") {
+        overviewBox.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+            <strong style="color:var(--navy); font-size:1rem;">Viewing All 10 Agile Facility Solutions Capabilities</strong>
+            <span class="badge badge-blue">Select any trade pill above to view specific Supplies &amp; Core Scope</span>
+          </div>
+          <p style="margin:0.4rem 0 0 0; font-size:0.88rem; color:var(--text-muted);">Includes Commercial Pest Control, Controlled Environment Cleaning, Cosmetic &amp; Painting, Grounds/Snow, Handyman &amp; Light Construction, HVAC, Industrial Cleaning, Janitorial, Security Guards, and Specialty Surface Restoration.</p>
+        `;
+      } else {
+        const t = filteredTrades[0];
+        overviewBox.innerHTML = `
+          <div class="brand-kicker" style="color:var(--slate-blue);">${t.tag}</div>
+          <h3 style="margin:0.15rem 0 0.45rem 0; font-size:1.1rem; color:var(--navy);">${t.name}</h3>
+          <p style="margin:0 0 0.5rem 0; font-size:0.9rem;"><strong>Operational Scope:</strong> ${t.scope}</p>
+          <p style="margin:0; font-size:0.88rem; color:var(--text-muted);"><strong>Standard Supplies, Parts &amp; Equipment:</strong> ${t.supplies}</p>
+        `;
+      }
+
+      let cardsHtml = "";
+      filteredTrades.forEach(t => {
+        t.slang.forEach(s => {
+          const matchText = `${t.name} ${t.scope} ${t.supplies} ${s.term} ${s.def}`.toLowerCase();
+          if (!query || matchText.includes(query)) {
+            cardsHtml += `
+              <div class="slang-card">
+                <div>
+                  <span class="badge badge-blue">${t.name}</span>
+                  <h4 class="slang-term">${s.term}</h4>
+                  <p class="slang-def">${s.def}</p>
+                </div>
+              </div>
+            `;
+          }
+        });
+      });
+
+      grid.innerHTML = cardsHtml || `<p style="color:var(--text-muted); font-size:0.92rem;">No matching slang terms found. Try clearing your search filter.</p>`;
+    }
+
+    function toggleQuizMode() {
+      quizActive = !quizActive;
+      const box = document.getElementById("quizContainer");
+      const btn = document.getElementById("toggleQuizBtn");
+      box.style.display = quizActive ? "block" : "none";
+      btn.textContent = quizActive ? "Close Flashcard Quiz" : "Launch Slang Flashcard Quiz";
+      if (quizActive) nextQuizQuestion();
+    }
+
+    function nextQuizQuestion() {
+      const pool = [];
+      TRADES_DATA.forEach(t => {
+        t.slang.forEach(s => pool.push({ trade: t.name, term: s.term, def: s.def }));
+      });
+      const correct = pool[Math.floor(Math.random() * pool.length)];
+      const distractors = [];
+      while (distractors.length < 3) {
+        const rand = pool[Math.floor(Math.random() * pool.length)];
+        if (rand.term !== correct.term && !distractors.some(d => d.term === rand.term)) {
+          distractors.push(rand);
+        }
+      }
+      const options = [correct, ...distractors].sort(() => Math.random() - 0.5);
+      currentQuizItem = correct;
+
+      document.getElementById("quizTradeBadge").textContent = correct.trade;
+      document.getElementById("quizScoreBadge").textContent = `Score: ${quizScore} / ${quizTotal}`;
+      document.getElementById("quizTermDisplay").textContent = `What is "${correct.term}"?`;
+
+      const optsContainer = document.getElementById("quizOptions");
+      optsContainer.innerHTML = options.map((opt, i) => `
+        <button class="quiz-opt-btn" type="button" onclick="checkQuizAnswer(this, ${opt.term === correct.term})">
+          ${opt.def}
+        </button>
+      `).join("");
+    }
+
+    function checkQuizAnswer(btnEl, isCorrect) {
+      const allBtns = document.querySelectorAll(".quiz-opt-btn");
+      if (Array.from(allBtns).some(b => b.disabled)) return;
+
+      quizTotal++;
+      if (isCorrect) {
+        quizScore++;
+        btnEl.classList.add("correct");
+      } else {
+        btnEl.classList.add("wrong");
+        allBtns.forEach(b => {
+          if (b.textContent.trim() === currentQuizItem.def.trim()) {
+            b.classList.add("correct");
+          }
+        });
+      }
+      allBtns.forEach(b => b.disabled = true);
+      document.getElementById("quizScoreBadge").textContent = `Score: ${quizScore} / ${quizTotal}`;
+    }
+
+    /* =====================================================================
+       MODULE 3: AUTOMATED PRICING & MARGIN CALCULATOR
+       ===================================================================== */
+    let lastCalculatedPrice = 4975.00;
+    let lastCalculatedTrade = "janitorial";
+
+    function switchCalcInputs() {
+      const trade = document.getElementById("calcTradeSelect").value;
+      const container = document.getElementById("calcInputsContainer");
+
+      if (trade === "janitorial") {
+        container.innerHTML = `
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="cCsf">Cleanable Square Footage (CSF)</label>
+              <input type="number" id="cCsf" value="45000" oninput="runCalculation()" />
+            </div>
+            <div class="form-group">
+              <label for="cProd">Production Rate (Sq Ft / Hr)</label>
+              <input type="number" id="cProd" value="3200" oninput="runCalculation()" />
+            </div>
+          </div>
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="cWage">Vendor Burdened Hourly Cost ($)</label>
+              <input type="number" id="cWage" value="22.50" step="0.5" oninput="runCalculation()" />
+            </div>
+            <div class="form-group">
+              <label for="cDays">Service Days / Month (5x/wk = 21.67)</label>
+              <input type="number" id="cDays" value="21.67" step="0.01" oninput="runCalculation()" />
+            </div>
+          </div>
+        `;
+      } else if (trade === "hvac") {
+        container.innerHTML = `
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="cRtus">Number of Rooftop Units (RTUs)</label>
+              <input type="number" id="cRtus" value="12" oninput="runCalculation()" />
+            </div>
+            <div class="form-group">
+              <label for="cTechRate">Vendor HVAC Tech Rate ($/hr)</label>
+              <input type="number" id="cTechRate" value="95" oninput="runCalculation()" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cFilterCost">Filter + Belt + Coil Chem Cost per RTU/Visit ($)</label>
+            <input type="number" id="cFilterCost" value="32" oninput="runCalculation()" />
+          </div>
+        `;
+      } else if (trade === "handyman") {
+        container.innerHTML = `
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="cHmHours">Estimated Technician Hours</label>
+              <input type="number" id="cHmHours" value="6" step="0.5" oninput="runCalculation()" />
+            </div>
+            <div class="form-group">
+              <label for="cHmRate">Vendor Hourly Buy Rate ($/hr)</label>
+              <input type="number" id="cHmRate" value="65" oninput="runCalculation()" />
+            </div>
+          </div>
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="cTrip">Vendor Trip / Dispatch Fee ($)</label>
+              <input type="number" id="cTrip" value="95" oninput="runCalculation()" />
+            </div>
+            <div class="form-group">
+              <label for="cParts">Wholesale Parts &amp; Materials ($)</label>
+              <input type="number" id="cParts" value="180" oninput="runCalculation()" />
+            </div>
+          </div>
+        `;
+      } else if (trade === "painting") {
+        container.innerHTML = `
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="cPaintSqft">Total Wall Surface Sq Ft</label>
+              <input type="number" id="cPaintSqft" value="12000" oninput="runCalculation()" />
+            </div>
+            <div class="form-group">
+              <label for="cCoats">Number of Paint Coats</label>
+              <input type="number" id="cCoats" value="2" min="1" max="4" oninput="runCalculation()" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cPainterRate">Painter Hourly Buy Rate ($/hr @ 175 sq ft/hr)</label>
+            <input type="number" id="cPainterRate" value="48" oninput="runCalculation()" />
+          </div>
+        `;
+      } else if (trade === "pest") {
+        container.innerHTML = `
+          <div class="grid-2" style="gap:0.75rem;">
+            <div class="form-group">
+              <label for="cPestSqft">Facility Total Sq Ft</label>
+              <input type="number" id="cPestSqft" value="60000" oninput="runCalculation()" />
+            </div>
+            <div class="form-group">
+              <label for="cStations">Exterior Rodent Bait Stations</label>
+              <input type="number" id="cStations" value="14" oninput="runCalculation()" />
+            </div>
+          </div>
+        `;
+      }
+      runCalculation();
+    }
+
+    function runCalculation() {
+      const trade = document.getElementById("calcTradeSelect").value;
+      const marginPct = parseFloat(document.getElementById("calcMarginSlider").value) / 100;
+      document.getElementById("marginPctLabel").textContent = `${Math.round(marginPct * 100)}%`;
+
+      let metricLabel = "";
+      let vendorCost = 0;
+      let formulaNote = "";
+
+      if (trade === "janitorial") {
+        const csf = parseFloat(document.getElementById("cCsf").value) || 0;
+        const prod = parseFloat(document.getElementById("cProd").value) || 3000;
+        const wage = parseFloat(document.getElementById("cWage").value) || 22;
+        const days = parseFloat(document.getElementById("cDays").value) || 21.67;
+
+        const dailyHrs = csf / prod;
+        const monthlyHrs = dailyHrs * days;
+        const laborCost = monthlyHrs * wage;
+        const supplyAllowance = laborCost * 0.04;
+        vendorCost = laborCost + supplyAllowance;
+        metricLabel = `${monthlyHrs.toFixed(1)} hrs/mo`;
+        formulaNote = `Formula: (${csf.toLocaleString()} CSF ÷ ${prod} sq ft/hr × ${days} days) × $${wage}/hr + 4% chemical allowance.`;
+      } else if (trade === "hvac") {
+        const rtus = parseFloat(document.getElementById("cRtus").value) || 0;
+        const rate = parseFloat(document.getElementById("cTechRate").value) || 95;
+        const mat = parseFloat(document.getElementById("cFilterCost").value) || 32;
+
+        const totalHrs = rtus * 0.75 * 4;
+        vendorCost = rtus * ((0.75 * rate) + mat) * 4;
+        metricLabel = `${totalHrs.toFixed(1)} hrs/yr`;
+        formulaNote = `Formula: ${rtus} RTUs × (0.75 hr × $${rate}/hr + $${mat} filters/belts) × 4 quarterly visits/year.`;
+      } else if (trade === "handyman") {
+        const hrs = parseFloat(document.getElementById("cHmHours").value) || 0;
+        const rate = parseFloat(document.getElementById("cHmRate").value) || 65;
+        const trip = parseFloat(document.getElementById("cTrip").value) || 95;
+        const parts = parseFloat(document.getElementById("cParts").value) || 0;
+
+        vendorCost = trip + (hrs * rate) + parts;
+        metricLabel = `${hrs.toFixed(1)} hrs`;
+        formulaNote = `Formula: $${trip} dispatch fee + (${hrs} hrs × $${rate}/hr) + $${parts} wholesale parts.`;
+      } else if (trade === "painting") {
+        const sqft = parseFloat(document.getElementById("cPaintSqft").value) || 0;
+        const coats = parseFloat(document.getElementById("cCoats").value) || 2;
+        const rate = parseFloat(document.getElementById("cPainterRate").value) || 48;
+
+        const gallons = (sqft / 350) * coats;
+        const paintCost = gallons * 42 * 1.15; // includes 15% sundries
+        const laborHrs = (sqft / 175) * (coats * 0.85);
+        vendorCost = paintCost + (laborHrs * rate);
+        metricLabel = `${Math.ceil(gallons)} gals / ${laborHrs.toFixed(0)} hrs`;
+        formulaNote = `Formula: (${sqft.toLocaleString()} sq ft ÷ 350 × ${coats} coats) @ $42/gal + 15% sundries + ${laborHrs.toFixed(0)} painter hrs.`;
+      } else if (trade === "pest") {
+        const sqft = parseFloat(document.getElementById("cPestSqft").value) || 0;
+        const stations = parseFloat(document.getElementById("cStations").value) || 0;
+
+        vendorCost = 85 + (sqft * 0.006) + (stations * 4.5);
+        metricLabel = `${stations} stations/mo`;
+        formulaNote = `Formula: $85 base visit + ($0.006 × ${sqft.toLocaleString()} sq ft) + (${stations} exterior bait stations serviced monthly).`;
+      }
+
+      const clientPrice = vendorCost / (1 - marginPct);
+      const profit = clientPrice - vendorCost;
+
+      lastCalculatedPrice = clientPrice;
+      lastCalculatedTrade = trade;
+
+      document.getElementById("kpiMetric1").textContent = metricLabel;
+      document.getElementById("kpiVendorCost").textContent = `$${vendorCost.toFixed(2)}`;
+      document.getElementById("kpiProfit").textContent = `$${profit.toFixed(2)}`;
+      document.getElementById("kpiClientPrice").textContent = `$${clientPrice.toFixed(2)}`;
+      document.getElementById("calcFormulaNote").textContent = formulaNote;
+    }
+
+    function sendCalcToQuote() {
+      document.getElementById("qTrade").value = lastCalculatedTrade;
+      document.getElementById("qPrice").value = lastCalculatedPrice.toFixed(2);
+      generateQuoteDoc();
+      document.querySelector('[data-tab="tab-sow"]').click();
+      showToast("Estimate pushed to SOW & Quotation Generator!");
+    }
+
+    /* =====================================================================
+       MODULE 4: SOW & QUOTATION GENERATOR
+       ===================================================================== */
+    const SOW_TEMPLATES = {
+      janitorial: {
+        title: "NIGHTLY COMMERCIAL JANITORIAL & CUSTODIAL MAINTENANCE",
+        bullets: [
+          "• Nightly Services (5x/Week): Empty all trash/recycling receptacles and replace liners; sanitize toilets, urinals, sinks, and partitions with EPA-registered quaternary disinfectant (10-min dwell time); restock paper/soap dispensers; HEPA vacuum carpeted traffic lanes; dust-mop and damp-mop hard floors with neutral pH cleaner; disinfect high-touch door handles and elevator buttons.",
+          "• Weekly & Monthly Tasks: High-dust horizontal ledges and vents above 72 inches; detail vacuum desk corners; damp-wipe trash exteriors and interior partition glass.",
+          "• Exclusions: Exterior window washing above ground level, hot-water carpet extraction, and VCT strip & wax (quoted separately via Change Order)."
+        ]
+      },
+      handyman: {
+        title: "COMMERCIAL HANDYMAN & LOADING DOCK PREVENTIVE MAINTENANCE",
+        bullets: [
+          "• General Facility Repairs: Patch and sand interior drywall damage; replace stained 2'x4' acoustic drop-ceiling tiles; calibrate hydraulic door closers; rebuild leaking commercial flushometers; secure wall corner guards and safety signage.",
+          "• Loading Dock & Overhead Doors: Inspect, lubricate, and adjust spring/hydraulic tension on dock levelers; inspect rubber dock bumpers and perimeter weather seals.",
+          "• Materials & NTE Governance: Standard fasteners, drywall mud, and lubricants included. Specialty parts billed at wholesale cost + 20% markup."
+        ]
+      },
+      hvac: {
+        title: "QUARTERLY HVAC PREVENTIVE MAINTENANCE (PM) AGREEMENT",
+        bullets: [
+          "• Quarterly PM Visits (4x/Year): Supply and replace pleated MERV-11 air filters across all Rooftop Units (RTUs); inspect and tension blower V-belts; lubricate bearings; flush condensate drain lines and treat pans with algaecide tablets; check compressor amp draws, contactors, and economizer dampers; verify supply/return Delta-T.",
+          "• Annual Spring Coil Wash: Chemically wash outdoor condenser coils during Q2 spring visit. Contract client receives <4-hour priority emergency dispatch and 15% discount on reactive labor."
+        ]
+      },
+      painting: {
+        title: "COSMETIC MAINTENANCE & COMMERCIAL INTERIOR PAINTING",
+        bullets: [
+          "• Surface Preparation: Protect carpets with canvas drop cloths and cover workstations with 6-mil poly sheeting. Patch nail holes and drywall cracks, sand smooth, and spot-prime repairs with PVA primer.",
+          "• Coating Application: Apply two (2) full coats of low-VOC commercial acrylic eggshell paint on walls and two (2) coats of semi-gloss alkyd-enamel on hollow metal door frames. Executed after-hours (6:00 PM – 2:30 AM)."
+        ]
+      },
+      pest: {
+        title: "COMMERCIAL INTEGRATED PEST MANAGEMENT (IPM) PROGRAM",
+        bullets: [
+          "• Monthly IPM Service: Conduct interior and exterior perimeter inspections for crawling insects (ants, roaches, spiders) and rodents. Service and replenish tamper-resistant exterior rodent bait stations and interior glue monitors.",
+          "• Structural Exclusion: Seal minor entry gaps up to 0.5 inches around pedestrian doors and utility penetrations using copper mesh and polyurethane sealant."
+        ]
+      }
+    };
+
+    function generateQuoteDoc() {
+      const client = document.getElementById("qClientName").value || "[Client Name]";
+      const address = document.getElementById("qSiteAddress").value || "[Site Address]";
+      const tradeKey = document.getElementById("qTrade").value;
+      const price = parseFloat(document.getElementById("qPrice").value) || 0;
+      const cycle = document.getElementById("qBillingCycle").value;
+      const tpl = SOW_TEMPLATES[tradeKey];
+      const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+      const text = `================================================================================
+AGILE FACILITY SOLUTIONS, INC. — FORMAL SCOPE OF WORK & COMMERCIAL QUOTATION
+================================================================================
+Quotation Reference #: AFS-2026-${Math.floor(1000 + Math.random() * 9000)}
+Issue Date:            ${today} (Valid for 30 Calendar Days)
+Prepared By:           Jowie Corrado, Vendor Coordinator — Agile Facility Solutions
+Compliance Standard:   $5M General Liability / $1M Workers' Comp / W-9 & COI Verified
+
+CLIENT / ACCOUNT:      ${client}
+SERVICE LOCATION:      ${address}
+BILLING SCHEDULE:      ${cycle}
+
+--------------------------------------------------------------------------------
+1. CONTRACTED SCOPE OF WORK (SOW): ${tpl.title}
+--------------------------------------------------------------------------------
+${tpl.bullets.join("\n")}
+
+--------------------------------------------------------------------------------
+2. COMMERCIAL PRICING SUMMARY
+--------------------------------------------------------------------------------
+• Primary Service Line:   ${tpl.title}
+• Billing Frequency:      ${cycle}
+• Quoted Contract Amount: $${price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+
+--------------------------------------------------------------------------------
+3. STANDARD COMMERCIAL TERMS & CLIENT AUTHORIZATION
+--------------------------------------------------------------------------------
+1. Payment Terms: Net 30 days from invoice date. Past-due balances accrue 1.5% monthly fee.
+2. Change Orders: Work outside the SOW above requires a written Change Order signed by Client.
+3. Insurance & Safety: Agile enforces active ACORD 25 COI, W-9, and background checks for all techs.
+
+Authorized Client Signature: ________________________   Date: ______________
+Printed Name & Title:        ________________________`;
+
+      document.getElementById("generatedQuoteOutput").textContent = text;
+    }
+
+    function copyQuoteText() {
+      const text = document.getElementById("generatedQuoteOutput").textContent;
+      const tempArea = document.createElement("textarea");
+      tempArea.value = text;
+      document.body.appendChild(tempArea);
+      tempArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempArea);
+      showToast("Formal Quotation & SOW copied to clipboard!");
+    }
+
+    /* =====================================================================
+       MODULE 5: COI & STATE WC COMPLIANCE CHECKER
+       ===================================================================== */
+    function initComplianceChecker() {
+      const stateSel = document.getElementById("coiStateSelect");
+      stateSel.innerHTML = US_STATES.map(s =>
+        `<option value="${s.code}" ${s.code === 'FL' ? 'selected' : ''}>${s.name} (${s.code})</option>`
+      ).join("");
+      runComplianceCheck();
+    }
+
+    function runComplianceCheck() {
+      const tradeKey = document.getElementById("coiTradeSelect").value;
+      const stateCode = document.getElementById("coiStateSelect").value;
+      const coi = COI_TRADES[tradeKey];
+      const st = US_STATES.find(s => s.code === stateCode);
+
+      let catBadgeClass = "badge-blue";
+      if (st.cat === "C" || st.cat === "D") catBadgeClass = "badge-warn";
+      if (st.cat === "E") catBadgeClass = "badge-danger";
+
+      document.getElementById("complianceOutput").innerHTML = `
+        <div style="margin-top:1rem;">
+          <h3 style="margin:0 0 0.5rem 0; font-size:1.05rem; color:var(--navy);">Required ACORD 25 COI Coverage for ${coi.name}</h3>
+          <table class="coi-table">
+            <thead>
+              <tr>
+                <th style="width:28%;">Coverage Line</th>
+                <th style="width:72%;">Mandatory Minimum Limit / Endorsement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Commercial General Liability</strong></td>
+                <td>${coi.gl}</td>
+              </tr>
+              <tr>
+                <td><strong>Workers' Compensation &amp; EL</strong></td>
+                <td>${coi.wc} <em>(See ${st.name} Exemption Rule below)</em></td>
+              </tr>
+              <tr>
+                <td><strong>Commercial Auto Liability</strong></td>
+                <td>${coi.auto}</td>
+              </tr>
+              <tr>
+                <td><strong>Trade-Specific Rider / Bond</strong></td>
+                <td><span class="badge badge-navy" style="margin-right:0.35rem;">Required</span> ${coi.specialty}</td>
+              </tr>
+              <tr>
+                <td><strong>Universal Endorsements</strong></td>
+                <td>Certificate Holder: <strong>Agile Facility Solutions, Inc.</strong> • Additional Insured (ISO <strong>CG 20 10</strong> &amp; <strong>CG 20 37</strong>) • <strong>Primary &amp; Non-Contributory</strong> • <strong>Waiver of Subrogation</strong> • 30-Day Cancellation Notice.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="decision-result" style="margin-top:1.15rem; border-left:4px solid var(--navy);">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+              <strong style="font-size:1rem; color:var(--navy);">${st.name} (${st.code}) — Workers' Compensation Rule</strong>
+              <span class="badge ${catBadgeClass}">Regulatory Tier ${st.cat}</span>
+            </div>
+            <p style="margin:0.55rem 0 0 0; font-size:0.9rem; line-height:1.55;">${st.rule}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    /* =====================================================================
+       UTILITIES & INITIALIZATION
+       ===================================================================== */
+    function showToast(msg) {
+      const t = document.getElementById("toastMsg");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2600);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      initLifecycle();
+      initTradesModule();
+      switchCalcInputs();
+      generateQuoteDoc();
+      initComplianceChecker();
+    });
+  </script>
+</body>
+</html>
